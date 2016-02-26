@@ -33,6 +33,11 @@ class Home extends Base{
     public function wisewiki() {
         return $this->tpl('wisewiki.tpl');
     }
+    
+    // wise-deep
+    public function wiseqa() {
+        return $this->tpl('wiseqa.tpl');
+    }
 
     // 使用流程
     public function float() {

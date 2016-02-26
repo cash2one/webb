@@ -11,6 +11,7 @@ $routes = [
     '/^\/$/' => 'home.home',
     '/^\/wiki$/' => 'home.wiki',
     '/^\/wise-wiki$/' => 'home.wisewiki',
+    '/^\/wise-deep$/' => 'home.wiseqa',
     '/^\/float$/' => 'home.float',
     '/^\/test$/' => 'home.test',
     '/^\/static\/.*$/' => 'home.staticfile',
