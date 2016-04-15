@@ -39,6 +39,13 @@
                 "moduleId": "wcl/webb"
             }
         },
+        "resource/js/webb-1.0.min.js": {
+            "uri": "/resource/js/webb-1.0.min.js",
+            "type": "js",
+            "deps": [
+                "wcl/webb"
+            ]
+        },
         "resource/js/webb.js": {
             "uri": "/resource/js/webb.js",
             "type": "js",
