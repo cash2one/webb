@@ -1,0 +1,51 @@
+ {
+    "res": {
+        "resource/js/zepto.js": {
+            "uri": "/resource/js/zepto.js",
+            "type": "js"
+        },
+        "resource/js/esl.js": {
+            "uri": "/resource/js/esl.js",
+            "type": "js"
+        },
+        "resource/js/esl_config.js": {
+            "uri": "/resource/js/esl_config.js",
+            "type": "js"
+        },
+        "resource/js/wcl/webb-disp.js": {
+            "uri": "/resource/js/wcl/webb-disp.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "wcl/webb-disp"
+            },
+            "deps": [
+                "wcl/webb"
+            ]
+        },
+        "resource/js/wcl/webb-ia.js": {
+            "uri": "/resource/js/wcl/webb-ia.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "wcl/webb-ia"
+            },
+            "deps": [
+                "wcl/webb"
+            ]
+        },
+        "resource/js/wcl/webb.js": {
+            "uri": "/resource/js/wcl/webb.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "wcl/webb"
+            }
+        },
+        "resource/js/webb.js": {
+            "uri": "/resource/js/webb.js",
+            "type": "js",
+            "deps": [
+                "wcl/webb"
+            ]
+        }
+    },
+    "pkg": {}
+}
