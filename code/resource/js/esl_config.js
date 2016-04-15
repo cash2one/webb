@@ -36,6 +36,6 @@ require.config({
 
 // webb日志
 WCL.amd.addPaths({
-    'wcl/webb-ia': "webb",
-    'wcl/webb-disp': "webb"
+    'wcl/webb-ia': "webb-1.0.min",
+    'wcl/webb-disp': "webb-1.0.min"
 });
