@@ -43,9 +43,9 @@
                     </div>
                     <div class="col-lg-4 webb-nav">
                         <div class="nav_item {%block name="float"%}{%/block%}"><a href="/float">使用流程</a></div>
-                        <div class="nav_item {%block name="wiki"%}{%/block%}"><a href="/wiki">PC-WIKI</a></div>
-                        <div class="nav_item {%block name="wise-wiki"%}{%/block%}"><a href="/wise-wiki">WISE-WIKI</a></div>
-                        <div class="nav_item {%block name="home"%}{%/block %}"><a href="/">简介</a></div>
+                        <div class="nav_item {%block name="wisepro-wiki"%}{%/block%}"><a href="/wisepro-wiki">移动通用版</a></div>
+                        <div class="nav_item {%block name="wiki"%}{%/block%}"><a href="/wiki">PC搜索版</a></div>
+                        <div class="nav_item {%block name="wise-wiki"%}{%/block%}"><a href="/wise-wiki">移动搜索版</a></div>
                     </div>
                     <div class="col-lg-2"></div>
                 </div>

@@ -1,5 +1,5 @@
 {%extends "base.tpl" %}
-{%block name="title"%}移动版Webb日志wiki(设计中){%/block%}
+{%block name="title"%}移动通用版Webb日志{%/block%}
 {%block name="css"%}
     <style>
         .webb-doc-header{width: 100%;height: 120px; margin-top: 80px;background-color: #6f5499;}
@@ -39,14 +39,14 @@
 {%/block%}
 {%block name="navColor"%}#666{%/block%}
 {%block name="scroll"%} data-spy="scroll" data-target="#webb-guid-bar"{%/block%}
-{%block name="wise-wiki"%}select-item{%/block%}
+{%block name="wisepro-wiki"%}select-item{%/block%}
 {%block name="content"%}
     <div class="webb-doc-header container-fluid">
         <div class="row">
             <div class="col-lg-2"></div>
             <div class="col-lg-5 webb-doc-des">
-                <h3>移动版Webb日志文档 (需求征集中)</h3>
-                <p>前端日志用于还原搜索过程，包含结果页展现日志、结果页浏览行为日志，后续会不断扩充自然人行为等日志功能。</p>
+                <h3>移动通用版Webb日志文档 </h3>
+                <p>作为内部开源应用为更多的产品页面提供Webb日志，用于还原用户真实渲染情况和操作行为。</p>
             </div>
             <div class="col-lg-5"></div>
         </div> 
@@ -56,6 +56,23 @@
             <div class="col-lg-2">
             </div>
             <div class="col-lg-8">
+                <div class="webb-wiki-section">
+                    <h3 id="use-log">如何使用</h3>
+                    <br>
+                    <h4 id="use-log-get">获取代码</h4>
+                    <br>
+                    <pre class="prettyprint Lang-js">{%include "wisepro-get-code.tpl"%}</pre>
+                    <br>
+                    <h4 id="use-log-config">完成配置</h4>
+                    <br>
+                    <pre class="prettyprint Lang-js">{%include "wisepro-config.tpl"%}</pre>
+                    <br>
+                    <h4 id="use-log-new">页面调用</h4>
+                    <br>
+                    <pre class="prettyprint Lang-js">{%include "wisepro-newobject.tpl"%}</pre>
+                    <br>
+                    <p><a href="http://webb.baidu.com/resource/demo.html" target="_blank">→ → 点这里看Demo!</a></p>
+                </div>
                 <div class="webb-wiki-section">
                     <h3 id="comm-log">公共字段</h3>
                     <br>
@@ -68,32 +85,32 @@
                         </tr>
                         <tr class="table-hover">
                             <td>type</td>
-                            <td>日志发送时机</td>
+                            <td>日志发送时机,必选</td>
                             <td>0 轮询<br>1 切换query<br>2 卸载页面<br>3 立即发送</td>
                         </tr>
                         <tr class="active">
                             <td>fm</td>
-                            <td>日志类别标识</td>
+                            <td>日志类别标识,必选</td>
                             <td>disp 展现日志<br>view 浏览行为日志</td>
                         </tr>
                         <tr>
-                            <td>q</td>
-                            <td>搜索关键字</td>
-                            <td>例：123</td>
+                            <td>pid</td>
+                            <td>产品ID(若发到通用Webb日志服务,该字段必选)</td>
+                            <td>例：10</td>
                         </tr>
                         <tr class="active">
                             <td>qid</td>
-                            <td>查询id</td>
+                            <td>服务端计算的页面请求ID,必选</td>
                             <td>例：bc8c312e00002e4f</td>
                         </tr>
                         <tr class="active">
                             <td>did</td>
-                            <td>展现id</td>
+                            <td>前端计算的页面ID,必选</td>
                             <td>例：9ad4e469b71b4e41f6bb02f647a081f2</td>
                         </tr>
                         <tr class="active">
                             <td>t</td>
-                            <td>日志发送时间戳</td>
+                            <td>日志发送时间戳,必选</td>
                             <td>例：1426819395195</td>
                         </tr>
                         <tr>
@@ -102,19 +119,16 @@
                             <td>参考各类日志说明</td>
                         </tr>
                     </table>
-                    <!--h4 id="comm-log-demo">Demo图</h4>
-                    <img src="/static/img/demo.png" alt="日志Demo图" class="img-rounded webb-demo-png"-->
                 </div>
                 <div class="webb-wiki-section">
-                    <h3 id="new-disp">展现日志</h3>
+                    <h3 id="new-disp">渲染日志</h3>
                     <br>
                     <h4 id="new-disp-collect">采集项</h4>
-                    <p>1.页面整体展现结构（页面大小、各队列结果条数、RS等）</p>
+                    <p>1.页面整体展现结构（页面大小、页面可视性等）</p>
                     <p>2.用户浏览环境（屏幕/浏览器大小、浏览器操作系统信息等）</p>
-                    <p>3.每条结果展现结构及meta信息（结果尺寸位置、模版资源标志、图片信息等）</p>
                     <br>
                     <h4 id="new-disp-demo">样例日志</h4>
-                    <pre class="prettyprint linenums Lang-js">{%include "wise-new-disp.tpl"%}</pre>
+                    <pre class="prettyprint linenums Lang-js">{%include "wisepro-new-disp.tpl"%}</pre>
                 </div>
                 <div class="webb-wiki-section">
                     <h3 id="new-view">浏览行为日志</h3>
@@ -123,48 +137,48 @@
                     <p>1.心跳日志</p>
                     <p>2.用户切换到激活/非激活状态</p>
                     <p>3.用户页面滚动行为</p>
-                    <p>4.页面可视状态切换</p>
-                    <p>5.用户横竖屏切换行为</p>
-                    <p>6.结果浏览行为（可视区域结果展现）</p>
-                    <p>7.组件交互日志</p>
+                    <p>4.用户横竖屏切换行为</p>
+                    <p>5.页面可视状态切换</p>
                     <br>
                     <h4 id="new-view-demo">日志样例</h4>
-                    <pre class="prettyprint linenums Lang-js">{%include "wise-new-view.tpl"%}</pre>
+                    <pre class="prettyprint linenums Lang-js">{%include "wisepro-new-view.tpl"%}</pre>
                     <br>
-                    <h4 id="new-view-function">前端使用方式</h4>
-                <p>使用要求:必须为页面<b style="color:red;">通用组件</b>;日志仅记录<b style="color:red;">前端交互行为</b>.</p>
-                    <p>页面内部的通用组件可以使用以下方法进行Webb日志发送:</p>
-                    <pre class="prettyprint linenums Lang-js">{%include "wise-new-view-function.tpl"%}</pre>
                 </div>
                 <div class="webb-wiki-section">
-                    <h3 id="webb-user">使用方</h3>
+                    <br>
+                    <h3 id="webb-application">申请使用</h3>
+                    <br>
+                    <h4 id="webb-asktouse">申请流程</h3>
+                    <br>
+                    <p>发送申请邮件到:liuyue05@baidu.com;mahao@baidu.com;</p>
+                    <p>邮件标题:XXX产品申请接入移动通用版Webb日志</p>
+                    <p>邮件内容:
+                    <ul>
+                    <li>使用背景</li>
+                    <li>页面访问方式</li>
+                    <li>站点域名</li>
+                    <li>产品日均PV,产品峰值QPS.</li>
+                    <li>日志存储资源调配信息</li>
+                    <li>需UBS支持的统计需求</li>
+                    </ul>
+                    </p>
+                    <br>
+                    <h4 id="webb-user">已备案使用方</h3>
                     <table class="table table-bordered">
                         <tr class="success">
                             <td>使用方</td>
-                            <td>使用内容</td>
+                            <td>产品ID</td>
+                            <td>页面域</td>
                             <td>接口人</td>
                         </tr>
                         <tr class="table-hover">
-                            <td>ubs</td>
-                            <td>满意度计算、摘要满足、用户分析，反作弊等</td>
-                            <td>马皓</td>
-                        </tr>
-                        <tr class="active">
-                            <td>rank</td>
-                            <td>点击调权等</td>
-                            <td>袁怀文</td>
-                        </tr>
-                        <tr class="active">
-                            <td>创维</td>
-                            <td>借助用户实时的操作数据,满足个性化推荐需求.</td>
-                            <td>潘晓雷</td>
-                        </tr>
-                        <tr class="active">
-                            <td>反作弊</td>
-                            <td>反作弊自然人识别</td>
-                            <td>丁卓</td>
+                            <td>短视频播放中间页</td>
+                            <td>1001</td>
+                            <td>video.pae.baidu.com</td>
+                            <td>许兆远/李奎</td>
                         </tr>
                     </table>
+
                 </div>
                 <div class="webb-wiki-section">
                     <h3 id="owner">接口人</h3>
@@ -197,7 +211,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-2" id="webb-guid-bar">{%include "wise-affix.tpl"%}</div>
+            <div class="col-lg-2" id="webb-guid-bar">{%include "wisepro-afiix.tpl"%}</div>
         </div>
     </div>
 {%/block %}

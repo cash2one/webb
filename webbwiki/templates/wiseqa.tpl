@@ -34,6 +34,7 @@
         .webb-chart-des1 span{border-bottom: 2px solid rgba(220, 220, 220, 1);}
         .webb-chart-des2 span{border-bottom: 2px solid rgba(151, 187, 205, 1);}
         .webb-chart-title{height: 40px;line-height: 40px;text-indent: 1em;}
+        .table-bordered td{text-align:center;}
     </style>
     <link href="/static/code-prettify/loader/prettify.css" rel="stylesheet">
 {%/block%}
@@ -56,75 +57,122 @@
             </div>
             <div class="col-lg-8">
                 <div class="webb-wiki-section">
-                    <h3 id="comm-log">公共字段</h3>
+                    <h3 id="comm-log">渲染日志详解</h3>
                     <br>
-                    <h4 id="comm-log-tab">字段参考表</h4>
-                    <table class="table table-bordered">
-                        <tr class="success">
-                            <td>字段</td>
-                            <td>含义</td>
-                            <td>取值</td>
-                        </tr>
-                        <tr class="table-hover">
-                            <td>type</td>
-                            <td>日志发送时机</td>
-                            <td>0 轮询<br>1 切换query<br>2 卸载页面<br>3 立即发送</td>
-                        </tr>
-                        <tr class="active">
-                            <td>fm</td>
-                            <td>日志类别标识</td>
-                            <td>disp 展现日志<br>view 浏览行为日志</td>
-                        </tr>
-                        <tr>
-                            <td>q</td>
-                            <td>搜索关键字</td>
-                            <td>例：123</td>
-                        </tr>
-                        <tr class="active">
-                            <td>qid</td>
-                            <td>查询id</td>
-                            <td>例：bc8c312e00002e4f</td>
-                        </tr>
-                        <tr class="active">
-                            <td>did</td>
-                            <td>展现id</td>
-                            <td>例：9ad4e469b71b4e41f6bb02f647a081f2</td>
-                        </tr>
-                        <tr class="active">
-                            <td>t</td>
-                            <td>日志发送时间戳</td>
-                            <td>例：1426819395195</td>
-                        </tr>
-                        <tr>
-                            <td>data</td>
-                            <td>各类日志内容</td>
-                            <td>参考各类日志说明</td>
-                        </tr>
-                    </table>
+                    <h4 id="comm-log-tab">浏览器支持情况</h4>
                     <!--h4 id="comm-log-demo">Demo图</h4>
                     <img src="/static/img/demo.png" alt="日志Demo图" class="img-rounded webb-demo-png"-->
                 </div>
                 <div class="webb-wiki-section">
-                    <h3 id="new-disp">展现日志</h3>
+                    <h3 id="new-view">交互日志详解</h3>
                     <br>
-                    <h4 id="new-disp-collect">采集项</h4>
-                    <p>1.页面整体展现结构（页面大小、各队列结果条数、RS等）</p>
-                    <p>2.用户浏览环境（屏幕/浏览器大小、浏览器操作系统信息等）</p>
-                    <p>3.每条结果展现结构及meta信息（结果尺寸位置、模版资源标志、图片信息等）</p>
-                    <br>
-                    <h4 id="new-disp-demo">样例日志</h4>
-                    <pre class="prettyprint linenums Lang-js">{%include "wise-new-disp.tpl"%}</pre>
-                </div>
-                <div class="webb-wiki-section">
-                    <h3 id="new-view">浏览行为日志</h3>
-                    <br>
-                    <h4 id="new-view-collect">采集项</h4>
-                    <p>1.心跳日志</p>
-                    <p>2.用户切换到激活/非激活状态</p>
-                    <p>3.用户页面滚动行为</p>
-                    <p>4.用户横竖屏切换行为</p>
-                    <p>5.结果浏览行为（可视区域结果展现）</p>
-                    <p>6.组件交互日志</p>
+                    <h4 id="new-view-collect">焦点离开: blur</h4>
+                    <table class="table table-bordered">
+                        <tr>
+                            <td>操作系统</td>
+                            <td colspan="4">iPhone</td>
+                            <td colspan="4">安卓</td>
+                        </tr>
+                        <tr class="success">
+                            <td>触发时机</td>
+                            <td>Safari</td>
+                            <td>手百</td>
+                            <td>百度浏览器</td>
+                            <td>UC</td>
+                            <td>手百</td>
+                            <td>百度浏览器</td>
+                            <td>UC</td>
+                            <td>自带浏览器</td>
+                        </tr>
+                        <tr>
+                            <td>App关闭</td>
+                            <td>N</td>
+                            <td>N</td>
+                            <td>N</td>
+                            <td>N</td>
+                            <td>Y</td>
+                            <td>N</td>
+                            <td>N</td>
+                            <td>N</td>
+                        </tr>
+                        <tr class="active">
+                            <td>App转后台</td>
+                            <td>Y</td>
+                            <td>N</td>
+                            <td>N</td>
+                            <td>N</td>
+                            <td>Y</td>
+                            <td>N</td>
+                            <td>N</td>
+                            <td>N</td>
+                        </tr>
+                        <tr>
+                            <td>标签关闭</td>
+                            <td>N</td>
+                            <td>-</td>
+                            <td>N</td>
+                            <td>Y</td>
+                            <td>-</td>
+                            <td>N</td>
+                            <td>N</td>
+                            <td>Y</td>
+                        </tr>
+                        <tr class="active">
+                            <td>标签切换离开</td>
+                            <td>N</td>
+                            <td>-</td>
+                            <td>N</td>
+                            <td>N</td>
+                            <td>-</td>
+                            <td>Y</td>
+                            <td>Y</td>
+                            <td>Y</td>
+                        </tr>
+                        <tr>
+                            <td>重新搜索</td>
+                            <td>N</td>
+                            <td>Y</td>
+                            <td>N</td>
+                            <td>N</td>
+                            <td>Y</td>
+                            <td>-</td>
+                            <td>N</td>
+                            <td>Y</td>
+                        </tr>
+                        <tr class="active">
+                            <td>链接跳转</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>地址栏搜索</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="active">
+                            <td>点击页面外部元素</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
                     <br>
                     <h4 id="new-view-demo">日志样例</h4>
                     <pre class="prettyprint linenums Lang-js">{%include "wise-new-view.tpl"%}</pre>

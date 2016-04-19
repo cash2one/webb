@@ -8,6 +8,7 @@ data = {
             wind: {w: 320, h: 568},    // 视窗width_height
             scr: {w: 640, h: 1136}     // 屏幕分辨率
         },
+        vsb: "visible",               // 页面可见性 visible可见,hidden不可见,其他.
         t: 1234567890000               // 采集时间
     },
     

@@ -34,6 +34,11 @@ class Home extends Base{
         return $this->tpl('wisewiki.tpl');
     }
     
+    // Wise 通用版Wiki
+    public function prowiki() {
+        return $this->tpl('prowiki.tpl');
+    }
+    
     // wise-deep
     public function wiseqa() {
         return $this->tpl('wiseqa.tpl');

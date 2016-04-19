@@ -1,0 +1,1 @@
+var WCL=window.WCL||{};WCL.amd={keys:{},addPaths:function(e){"object"==typeof e&&(require.config({paths:e}),$.extend(WCL.amd.keys,e))},exist:function(e){return e&&"undefined"!=typeof WCL.amd.keys[e]?!0:!1}},require.config({baseUrl:"./js/"}),WCL.amd.addPaths({"wcl/webb-ia":"webb-1.0.min","wcl/webb-disp":"webb-1.0.min"});
