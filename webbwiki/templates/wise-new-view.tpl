@@ -92,19 +92,41 @@ data =
 
     // 页面组件交互日志
     {
-        type: 'wp_act',   // 必选,组件类型交互,type需要以"wp_"开头,代表wise plug-ins.
-        action: 'close',  // 必选,组件交互动作
+        type: 'wp_xxxxx',   // 必选,组件类型交互,type需要以"wp_"开头,代表wise plug-ins.
+        action: 'xxxxxx',   // 必选,组件交互动作
+        t: 1425349269304,   // 必选,时间，13位，毫秒
+        o:9,                // order,代表第几条交互行为
+        g:24650,            // group,交互日志分组,每次webb实例化分组会不同
+        ext: {              // 可选,组件自定义参数,整体长度小于50字节.
+            xxxxx: 'xxxx'
+        }
+    },
+
+    // 以下为已备案组件:
+
+    // superframe组件
+    {
+        type: 'wp_act',   
+        action: 'close',  // show 展现 close 关闭
         t: 1425349269304, // 必选,时间，13位，毫秒
-        ext: {            // 可选,组件自定义参数,整体长度小于50字节.
-            name: 'wise_sf_news/feed'
+        o:9,              // order,代表第几条交互行为
+        g:24650,          // group,交互日志分组,每次webb实例化分组会不同
+        ext: {            
+            name: 'wise_sf_news/feed' //superframe name
+        }
+    },
+
+
+    //视频播放组件
+    {
+        type: 'wp_vd'
+        action: 'start',    // start:开始. pgrs:播放过程,仅在中间打点一次. pause:暂停. cont:继续播放. end:结束
+        t: 1425349269304,   // 时间，13位，毫秒
+        o:9,                // order,代表第几条交互行为
+        g:24650,            // group,交互日志分组,每次webb实例化分组会不同
+        ext: {
+           id: '12210783730132910718.mp4'  // 视频ID,长度必须小于30字节
         }
     }
-    /* 组件交互日志备案 */
 
-    // Activity组件
-    // type: wp_act
-    // action: 1. show  展现
-    //         2. close 关闭
-    //         3. other 其他
-     
 }
