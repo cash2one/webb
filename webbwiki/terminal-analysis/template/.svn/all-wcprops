@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/ps/se/!svn/ver/692638/trunk/fe/tpl/terminal-analysis/template
+END
+detail.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/ps/se/!svn/ver/692631/trunk/fe/tpl/terminal-analysis/template/detail.tpl
+END
+index.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/ps/se/!svn/ver/692621/trunk/fe/tpl/terminal-analysis/template/index.tpl
+END
+header.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/ps/se/!svn/ver/692638/trunk/fe/tpl/terminal-analysis/template/header.tpl
+END
+4g.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/ps/se/!svn/ver/656413/trunk/fe/tpl/terminal-analysis/template/4g.tpl
+END
+trend.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/ps/se/!svn/ver/652384/trunk/fe/tpl/terminal-analysis/template/trend.tpl
+END
+footer.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/ps/se/!svn/ver/692622/trunk/fe/tpl/terminal-analysis/template/footer.tpl
+END

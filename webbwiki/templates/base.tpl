@@ -35,17 +35,18 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-2"></div>
-                    <div class="col-lg-4 logo">
+                    <div class="col-lg-2 logo">
                         <a href="/">
                             <img src="/static/img/logo.png">
                             <div>Webb日志</div>
                         </a>
                     </div>
-                    <div class="col-lg-4 webb-nav">
+                    <div class="col-lg-6 webb-nav">
                         <div class="nav_item {%block name="float"%}{%/block%}"><a href="/float">使用流程</a></div>
                         <div class="nav_item {%block name="wisepro-wiki"%}{%/block%}"><a href="/wisepro-wiki">移动通用版</a></div>
                         <div class="nav_item {%block name="wiki"%}{%/block%}"><a href="/wiki">PC搜索版</a></div>
                         <div class="nav_item {%block name="wise-wiki"%}{%/block%}"><a href="/wise-wiki">移动搜索版</a></div>
+                        <div class="nav_item {%block name="mip-wiki"%}{%/block%}"><a href="/mipwiki">Mip</a></div>
                     </div>
                     <div class="col-lg-2"></div>
                 </div>

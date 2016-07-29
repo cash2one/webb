@@ -1,0 +1,194 @@
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+    padding-top: 50px;
+}
+
+.sub-header {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.table thead {
+    background-color: #f5f5f5;
+}
+
+/**
+ * Top navigation
+ * Hide default border to remove 1px line.
+ */
+.navbar-fixed-top {
+    border: 0;
+}
+
+/* Hide for mobile, show later */
+.sidebar {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .sidebar {
+        position: fixed;
+        top: 51px;
+        bottom: 0;
+        left: 0;
+        z-index: 1000;
+        display: block;
+        padding: 20px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        /* Scrollable contents if viewport is shorter than content. */
+        background-color: #f5f5f5;
+        border-right: 1px solid #eee;
+    }
+}
+
+/* Sidebar navigation */
+.nav-sidebar {
+    margin-right: -21px;
+    /* 20px padding + 1px border */
+    margin-bottom: 20px;
+    margin-left: -20px;
+}
+
+.nav-sidebar > li > a {
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {
+    color: #fff;
+    background-color: #428bca;
+}
+
+
+/**
+ * Main content
+ */
+.main {
+    padding: 20px;
+}
+
+@media (min-width: 768px) {
+    .main {
+        padding-right: 40px;
+        padding-left: 40px;
+    }
+}
+
+.main .page-header {
+    margin-top: 0;
+}
+
+
+/*
+ * Placeholder dashboard ideas
+ */
+
+.placeholders {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.placeholders h4 {
+    margin-bottom: 0;
+}
+
+.placeholder {
+    margin-bottom: 20px;
+}
+
+.placeholder img {
+    display: inline-block;
+    border-radius: 50%;
+}
+
+.date-picker-wrapper {
+    margin: 18px 0;
+}
+
+.date-picker-wrapper .col-sm-4 {
+    padding: 0;
+}
+
+.chart-canvas {
+    width: 100%;
+    margin-top: 50px;
+    text-align: center;
+}
+
+#chartjs-tooltip {
+    opacity: 1;
+    position: absolute;
+    background: rgba(0, 0, 0, .7);
+    color: white;
+    padding: 3px;
+    border-radius: 3px;
+    -webkit-transition: all .1s ease;
+            transition: all .1s ease;
+    pointer-events: none;
+    -webkit-transform: translate(-50%, 0);
+            transform: translate(-50%, 0);
+}
+
+#chartjs-tooltip.below {
+    -webkit-transform: translate(-50%, 0);
+            transform: translate(-50%, 0);
+}
+
+#chartjs-tooltip.below:before {
+    border: solid;
+    border-color: #111 transparent;
+    border-color: rgba(0, 0, 0, .8) transparent;
+    border-width: 0 8px 8px 8px;
+    bottom: 1em;
+    content: "";
+    display: block;
+    left: 50%;
+    position: absolute;
+    z-index: 99;
+    -webkit-transform: translate(-50%, -100%);
+            transform: translate(-50%, -100%);
+}
+
+#chartjs-tooltip.above {
+    -webkit-transform: translate(-50%, -100%);
+            transform: translate(-50%, -100%);
+}
+
+#chartjs-tooltip.above:before {
+    border: solid;
+    border-color: #111 transparent;
+    border-color: rgba(0, 0, 0, .8) transparent;
+    border-width: 8px 8px 0 8px;
+    bottom: 1em;
+    content: "";
+    display: block;
+    left: 50%;
+    top: 100%;
+    position: absolute;
+    z-index: 99;
+    -webkit-transform: translate(-50%, 0);
+            transform: translate(-50%, 0);
+}
+
+.table .display-versions-item {
+    cursor: pointer;
+}
+
+.dropdown-toggle {
+    min-width: 160px;
+}
+
+.input-daterange input {
+    text-align: left;
+}
+
+.display-trend-btn {
+    margin-left: -10px;
+}
+
+.trend-dropdown-menu {
+    left: 15px;
+}

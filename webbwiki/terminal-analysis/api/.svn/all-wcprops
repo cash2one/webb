@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/ps/se/!svn/ver/656444/trunk/fe/tpl/terminal-analysis/api
+END
+getJSON.php
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/ps/se/!svn/ver/653009/trunk/fe/tpl/terminal-analysis/api/getJSON.php
+END
+trendJSON.php
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/ps/se/!svn/ver/656444/trunk/fe/tpl/terminal-analysis/api/trendJSON.php
+END
