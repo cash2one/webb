@@ -1,73 +1,28 @@
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-    <ul class="nav nav-pills category-tabs">
-        <li<?php if ($category==='browser') { echo ' class="active"'; } ?>><a href="?category=browser">浏览器分布</a></li>
-        <li<?php if ($category==='os') { echo ' class="active"'; } ?>><a href="?category=os">操作系统分布</a></li>
-        <li<?php if ($category==='display') { echo ' class="active"'; } ?>><a href="?category=display">版式分布</a></li>
-        <li<?php if ($tpl_name==='detail') { echo ' class="active"'; } ?>><a href="?tpl=detail">浏览器详情</a></li>
-        <li<?php if ($tpl_name==='trend') { echo ' class="active"'; } ?>><a href="?tpl=trend">趋势</a></li>
+    <?php
     
-    </ul>
+    if ($tpl_name==='index'){
+        // 头部Tab导航
+        require_once TPL_DIR . '/include/index_nav.tpl';
 
-    <div class="date-picker-wrapper row">
-        <div class="col-sm-4">
-            <div class="form-group">
-                <div class="input-group date" class="datetimepicker">
-                    <input type="text" name="date" class="form-control" />
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="chart-wrapper" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+        if ($category==='display' || $category==='os' || $category==='browser') {
+            require_once TPL_DIR . '/include/display_date_picker.tpl';
+            require_once TPL_DIR . '/include/chart_wrapper.tpl';
+            require_once TPL_DIR . '/include/display_table_wrapper.tpl';
+            if($category==='os' || $category==='browser'){
+                require_once TPL_DIR . '/include/display_modal.tpl';
+            }
+        }
+        if($category==='detail'){
+            require_once TPL_DIR . '/include/display_date_picker.tpl';
+            require_once TPL_DIR . '/include/detail_table_wrapper.tpl';
+            require_once TPL_DIR . '/include/detail_modal.tpl';
+        }
+        if($category==='trend'){
+            require_once TPL_DIR . '/include/trend.tpl';
+        }
+    }
     
-    <div class="table-responsive detail-table-wrapper">
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th>名称</th>
-                    <th>当日占比</th>
-                    <th>当月占比</th>
-                    <th>上月占比</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
-    </div>
+    ?>
 
-    <!-- Modal: browser/os分类详情 -->
-    <div class="modal fade bs-example-modal-lg" id="detailVersionModal" tabindex="-1" role="dialog" aria-labelledby="detailVersionModalLabel">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="detailVersionModalLabel">各版本占比详情</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="detail-modal-chart-wrapper" style="min-width: 510px; height: 400px; max-width: 600px; margin: 0 auto"></div>
-    
-                    <div class="table-responsive detail-modal-table-wrapper">
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th>版本号</th>
-                                    <th>当日占比</th>
-                                    <th>当月占比</th>
-                                    <th>上月占比</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>

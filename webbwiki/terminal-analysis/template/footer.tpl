@@ -14,9 +14,9 @@
     (function () {
         try {
             <?php
-            if($tpl_name==='pvloc')
+            if($tpl_name==='pvloc' || $tpl_name==='loc_UA')
                 echo 'initDatePicker(pvlocJSON.date);';
-            else
+            if($tpl_name==='index' || $tpl_name==='detail' || $tpl_name==='trend') 
                 echo 'initDatePicker(glbJSON.date);';
             ?>
             // 初始化日期选择插件
@@ -44,12 +44,12 @@
     }
 ?>
 <?php
-    if ($tpl_name==='detail') {
+    if ($tpl_name==='index' && $category ==='detail') {
         echo '<script type="text/javascript" src="static/js/detail.js"></script>';
     }
 ?>
 <?php
-    if ($tpl_name==='trend') {
+    if ($tpl_name==='index' && $category ==='trend') {
         echo '<script type="text/javascript" src="static/js/trend.js"></script>';
     }
 ?>
