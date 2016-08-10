@@ -3,7 +3,7 @@ defined('BASE_DIR') or define('BASE_DIR', dirname(dirname(__FILE__)));
 defined('LIB_DIR') or define('LIB_DIR', BASE_DIR . '/library');
 defined('DATA_DIR') or define('DATA_DIR', BASE_DIR . '/data');
 defined('TPL_DIR') or define('TPL_DIR', BASE_DIR . '/template');
-defined('PVLOC_DIR') or define('PVLOC_DIR', BASE_DIR . '/data_pvloc');
+defined('PVLOC_DIR') or define('PVLOC_DIR', BASE_DIR . '/data_loc_ua');
 /**
  * 获取请求参数，来源：$_GET，$_POST, $_COOKIE
  *

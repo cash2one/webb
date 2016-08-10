@@ -29,13 +29,13 @@
     <![endif]-->
     <script type="text/javascript">
         window['tplName'] = '<?php echo $tpl_name; ?>';
-        window['glbJSON'] = <?php echo json_encode(last_day_JSON());?>;
-        window['pvlocJSON'] = <?php echo json_encode(last_day_PVLOC_JSON());?>;
-    </script>
+        <?php if($tpl_name === 'index' || $tpl_name === 'trend'){echo "window['glbJSON']=".json_encode(last_day_JSON());}?>;
+        <?php if($tpl_name === 'pvloc' || $tpl_name === 'loc_UA'){echo "window['pvlocJSON'] = ".json_encode(last_day_PVLOC_JSON());}?>
+    </script> 
 </head>
 
-<body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
