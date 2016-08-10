@@ -11,24 +11,25 @@ for line in sys.stdin:
         continue
 
     arr = line.split('\t')
-    if len(arr) < 31:
+    if len(arr) < 43:
         continue
 
-    baiduid = arr[3]
+    baiduid = arr[2]
     if len(baiduid) != 32:
         continue
 
     source_group = (arr[13]).strip().lower()
     search_type = (arr[14]).strip().lower()
-    user_agent = (arr[28]).strip().lower()
-    mobile_format = (arr[29]).strip().lower()
-    mobile_platform = (arr[30]).strip().lower()
-    
+    user_agent = (arr[27]).strip().lower()
+    mobile_format = (arr[28]).strip().lower()
+    mobile_platform = (arr[29]).strip().lower()
+    #print "11111"
+
     if not user_agent or len(user_agent)<20:
         continue
-
     if user_agent == 'mozilla/5.0' or re.search(r'(baiduinternalrobot|googlebot|odp ral|baiduspider)', user_agent, re.I):
         continue
+ #   print user_agent
 
     ################################ os ####################################
     osList = [

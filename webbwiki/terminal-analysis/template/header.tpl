@@ -30,6 +30,7 @@
     <script type="text/javascript">
         window['tplName'] = '<?php echo $tpl_name; ?>';
         window['glbJSON'] = <?php echo json_encode(last_day_JSON());?>;
+        window['pvlocJSON'] = <?php echo json_encode(last_day_PVLOC_JSON());?>;
     </script>
 </head>
 
@@ -46,14 +47,14 @@
                 <a class="navbar-brand" href="javascript:void();">Wise终端分析平台</a>
             </div>
             
-            <div id="navbar" class="navbar-collapse collapse">
+            <!--div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="javascript:void(0);">Home</a></li>
                     <li><a href="javascript:void(0);">Settings</a></li>
                     <li><a href="javascript:void(0);">Profile</a></li>
                     <li><a href="javascript:void(0);">Help</a></li>
                 </ul>
-            </div>
+            </div-->
         </div>
     </nav>
 
@@ -63,8 +64,8 @@
                 <ul class="nav nav-sidebar">
                     <?php
                         $nav_list = array(
-                            array('tpl' => 'index', 'text' => '概览', 'url' => ''),
-                            array('tpl' => 'trend', 'text' => '趋势', 'url' => '?tpl=trend'), 
+                            array('tpl' => 'index', 'text' => '终端概况(UA)', 'url' => '?tpl=index'),
+                            array('tpl' => 'pvloc', 'text' => '用户定位', 'url' => '?tpl=pvloc'), 
                             //array('tpl' => '4g', 'text' => '4G召回', 'url' => '?tpl=4g')
                         );
                         foreach ($nav_list as $key => $value) {

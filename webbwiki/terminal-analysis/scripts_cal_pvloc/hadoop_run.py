@@ -10,7 +10,7 @@ def getBaseInfo(logdate):
     inputpath = "hdfs://szwg-ston-hdfs.dmop.baidu.com:54310/app/mi/se/udw_mart/ud_ml_wise_merge_data_text/partition_stat_date=%s/*" % logdate
     # 不跑全量，取1%的数据分析
     #inputpath = "hdfs://szwg-ecomon-hdfs.dmop.baidu.com:54310/app/ns/udw/release/app/ud/main/ud_ml_wise_merge_data2/partition_stat_date=%s/0000*" % logdate
-    outputpath = "hdfs://szwg-stoff-hdfs.dmop.baidu.com:54310/ps/ubs/ubs-data/tianhaiying/panfayi/%s_wise_gbs_baseinfo_out" % logdate
+    outputpath = "hdfs://szwg-stoff-hdfs.dmop.baidu.com:54310/ps/ubs/ubs-data/tianhaiying/panfayi/%s_wise_gbs_pvloc_1_out" % logdate
 
     print "****************************************************"
     print "Step [1]: Clean output directory"
@@ -35,16 +35,16 @@ def getBaseInfo(logdate):
         " -jobconf mapred.reduce.tasks=100" + \
         " -jobconf mapred.job.reduce.capacity=400" + \
         " -jobconf mapred.job.map.capacity=800" + \
-        " -jobconf mapred.job.name=\"ps_fe_panfayi_wise_gbs_baseinfo_%s\"" % logdate + \
+        " -jobconf mapred.job.name=\"ps_fe_panfayi_wise_gbs_pvloc_1_%s\"" % logdate + \
         " -jobconf mapred.job.priority=VERY_HIGH"
     print command
     os.system(command)
-    
-    
+
+
 def calculate(logdate):
     basedir = "/home/work/hadoop/hadoop"
-    inputpath = "hdfs://szwg-stoff-hdfs.dmop.baidu.com:54310/ps/ubs/ubs-data/tianhaiying/panfayi/%s_wise_gbs_baseinfo_out/part-*" % logdate
-    outputpath = "hdfs://szwg-stoff-hdfs.dmop.baidu.com:54310/ps/ubs/ubs-data/tianhaiying/panfayi/%s_wise_gbs_calculate_out" % logdate
+    inputpath = "hdfs://szwg-stoff-hdfs.dmop.baidu.com:54310/ps/ubs/ubs-data/tianhaiying/panfayi/%s_wise_gbs_pvloc_1_out/part-*" % logdate
+    outputpath = "hdfs://szwg-stoff-hdfs.dmop.baidu.com:54310/ps/ubs/ubs-data/tianhaiying/panfayi/%s_wise_gbs_pvloc_2_out" % logdate
 
     print "****************************************************"
     print "Step [1]: Clean output directory"
@@ -60,10 +60,10 @@ def calculate(logdate):
     command =  basedir + "/bin/hadoop streaming " + \
         " -input " + inputpath + \
         " -output " + outputpath + \
-        " -mapper \"./python/python2.6/bin/python2.6 mapper_calculate.py\" " + \
-        " -reducer \"./python/python2.6/bin/python2.6 reducer_calculate.py\" " + \
-        " -file " + currdir + "/mapper_calculate.py" + \
-        " -file " + currdir + "/reducer_calculate.py" + \
+        " -mapper \"./python/python2.6/bin/python2.6 mapper_cal_pv.py\" " + \
+        " -reducer \"./python/python2.6/bin/python2.6 reducer_cal_pv.py %s\" " % logdate + \
+        " -file " + currdir + "/mapper_cal_pv.py" + \
+        " -file " + currdir + "/reducer_cal_pv.py" + \
         " -cmdenv logdate=" + logdate + \
         " -inputformat org.apache.hadoop.mapred.CombineTextInputFormat" +\
         " -jobconf mapred.max.split.size=5368709120" +\
@@ -71,27 +71,27 @@ def calculate(logdate):
         " -jobconf mapred.reduce.tasks=1" + \
         " -jobconf mapred.job.reduce.capacity=400" + \
         " -jobconf mapred.job.map.capacity=800" + \
-        " -jobconf mapred.job.name=\"ps_fe_panfayi_wise_gbs_calculate_%s\"" % logdate + \
+        " -jobconf mapred.job.name=\"ps_fe_panfayi_wise_gbs_pvloc_2_%s\"" % logdate + \
         " -jobconf mapred.job.priority=VERY_HIGH"
     print command
     os.system(command)
-    
+
     print "****************************************************"
     print "Step [3]: Clean tmp output"
     print "****************************************************"
     #command = basedir + "/bin/hadoop dfs -rmr " + inputpath
     #print command
     #os.system(command)
-    
-    
+
+
 def saveResult(logdate):
     basedir = "/home/work/hadoop/hadoop"
     currdir = os.path.dirname(os.path.realpath(__file__))
-    inputpath = "hdfs://szwg-stoff-hdfs.dmop.baidu.com:54310/ps/ubs/ubs-data/tianhaiying/panfayi/%s_wise_gbs_calculate_out/part-00000" % logdate
-    
+    inputpath = "hdfs://szwg-stoff-hdfs.dmop.baidu.com:54310/ps/ubs/ubs-data/tianhaiying/panfayi/%s_wise_gbs_pvloc_2_out/part-00000" % logdate
+
     year = logdate[0:4]
     month = logdate[4:6]
-    outputpath = "%s/../data/%s/%s" % (currdir, year, month)    
+    outputpath = "%s/../data_pvloc/%s/%s" % (currdir, year, month)
     if not os.path.exists(outputpath):
         os.makedirs(outputpath)
 
@@ -101,11 +101,11 @@ def saveResult(logdate):
     command = basedir + "/bin/hadoop dfs -cat " + inputpath + " > " + outputpath + "/" + logdate
     print command
     os.system(command)
-    
+
 
 if __name__ == '__main__':
     today = datetime.today()
-    date_list = [date.strftime(today - timedelta(days=x), "%Y%m%d") for x in range(2, 3)]
+    date_list = [date.strftime(today - timedelta(days=x), "%Y%m%d") for x in range(3, 4)]
     for logdate in date_list:
         getBaseInfo(logdate)
         calculate(logdate)

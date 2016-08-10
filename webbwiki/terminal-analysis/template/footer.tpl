@@ -13,10 +13,21 @@
 <script type="text/javascript">
     (function () {
         try {
-            initDatePicker(glbJSON.date); // 初始化日期选择插件
+            <?php
+            if($tpl_name==='pvloc')
+                echo 'initDatePicker(pvlocJSON.date);';
+            else
+                echo 'initDatePicker(glbJSON.date);';
+            ?>
+            // 初始化日期选择插件
         } catch (e) {} 
     })();
 </script>
+<?php
+    if ($tpl_name==='pvloc') {
+        echo '<script type="text/javascript" src="static/js/pvloc.js"></script>';
+    }
+?>
 <?php
     if ($tpl_name==='index' && $category==='browser') {
         echo '<script type="text/javascript" src="static/js/browser.js"></script>';

@@ -33,6 +33,7 @@ function line_chart_single_data($start, $end, $cate, $name, $ver='') {
         )
     );
 
+    date_default_timezone_set("Asia/Hong_Kong");
     $start     = new DateTime($start);
     $end       = new DateTime($end);
     $interval  = new DateInterval('P1D');
@@ -92,6 +93,7 @@ function line_chart_multi_data($start, $end, $cate, $name='') {
     );
     $series = array();
 
+    date_default_timezone_set("Asia/Hong_Kong");
     $start     = new DateTime($start);
     $end       = new DateTime($end);
     $interval  = new DateInterval('P1D');

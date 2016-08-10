@@ -3,7 +3,7 @@ defined('BASE_DIR') or define('BASE_DIR', dirname(dirname(__FILE__)));
 defined('LIB_DIR') or define('LIB_DIR', BASE_DIR . '/library');
 defined('DATA_DIR') or define('DATA_DIR', BASE_DIR . '/data');
 defined('TPL_DIR') or define('TPL_DIR', BASE_DIR . '/template');
-
+defined('PVLOC_DIR') or define('PVLOC_DIR', BASE_DIR . '/data_pvloc');
 /**
  * 获取请求参数，来源：$_GET，$_POST, $_COOKIE
  *
@@ -191,6 +191,25 @@ function last_day_JSON() {
                 $json_data["data"]["lastMon"] = $json;
             }
             break;
+        }
+    }
+    return $json_data;
+}
+
+function last_day_pvloc_JSON() {
+    $json_data = array(
+        "status" => false, 
+        "date"   => date('Y/m/d', strtotime('-1 days')), 
+        "data"   => array()
+    );
+
+    for ($i=1; $i <= 50; $i++) { // 考虑到Hadoop计算的延迟，最多反推50天
+        list($y, $m, $d) = explode("/", date('Y/m/d', strtotime('-' . $i .' days')));
+        $file = PVLOC_DIR . '/' . $y . '/'  . $m . '/' . $y . $m . $d;
+        if (is_file($file) && ($json=json_decode(file_get_contents($file), true))) {
+            $json_data["data"] = $json;
+            $json_data["date"] = $y . "/" . $m . "/" . $d;
+            $json_data['status'] = true;
         }
     }
     return $json_data;
