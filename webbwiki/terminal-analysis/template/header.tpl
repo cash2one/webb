@@ -13,7 +13,7 @@
     <meta name="author" content="panfayi" />
     <!--link rel="icon" href="favicon.ico" /-->
 
-    <title>Wise终端分析平台</title>
+    <title>FE日志数据调研平台</title>
 
     <!-- Bootstrap core CSS -->
     <link type="text/css" href="static/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
@@ -44,7 +44,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="javascript:void();">Wise终端分析平台</a>
+                <a class="navbar-brand" href="javascript:void();">FE日志数据调研平台</a>
             </div>
             
             <!--div id="navbar" class="navbar-collapse collapse">
