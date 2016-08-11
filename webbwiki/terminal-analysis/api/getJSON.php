@@ -1,7 +1,7 @@
 <?php
 defined('BASE_DIR') or define('BASE_DIR', dirname(dirname(__FILE__)));
 defined('LIB_DIR') or define('LIB_DIR', BASE_DIR . '/library');
-defined('DATA_DIR') or define('DATA_DIR', BASE_DIR . '/data');
+defined('DATA_DIR') or define('DATA_DIR', BASE_DIR . '/data_ua');
 require_once LIB_DIR . '/functions.php';
 
 $date = http_params('date');

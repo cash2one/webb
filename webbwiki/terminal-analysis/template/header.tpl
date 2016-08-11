@@ -29,8 +29,8 @@
     <![endif]-->
     <script type="text/javascript">
         window['tplName'] = '<?php echo $tpl_name; ?>';
-        <?php if($tpl_name === 'index' || $tpl_name === 'detail' || $tpl_name === 'trend'){echo "window['glbJSON']=".json_encode(last_day_JSON());}?>;
-        <?php if($tpl_name === 'pvloc' || $tpl_name === 'loc_UA'){echo "window['pvlocJSON'] = ".json_encode(last_day_PVLOC_JSON());}?>
+        <?php if($tpl_name === 'index'){echo "window['glbJSON']=".json_encode(last_day_JSON());}?>;
+        <?php if($tpl_name === 'loc'){echo "window['pvlocJSON']=".json_encode(last_day_PVLOC_JSON());}?>
     </script> 
 </head>
 
@@ -65,7 +65,7 @@
                     <?php
                         $nav_list = array(
                             array('tpl' => 'index', 'text' => '终端概况(UA)', 'url' => '?tpl=index'),
-                            array('tpl' => 'pvloc', 'text' => '用户定位', 'url' => '?tpl=pvloc') 
+                            array('tpl' => 'loc', 'text' => '用户定位', 'url' => '?tpl=loc&category=total') 
                             //array('tpl' => '4g', 'text' => '4G召回', 'url' => '?tpl=4g')
                         );
                         foreach ($nav_list as $key => $value) {

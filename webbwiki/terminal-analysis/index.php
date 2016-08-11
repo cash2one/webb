@@ -3,7 +3,7 @@ error_reporting(E_ERROR);
 
 defined('BASE_DIR') or define('BASE_DIR', dirname(__FILE__));
 defined('LIB_DIR') or define('LIB_DIR', BASE_DIR . '/library');
-defined('DATA_DIR') or define('DATA_DIR', BASE_DIR . '/data');
+defined('DATA_DIR') or define('DATA_DIR', BASE_DIR . '/data_ua');
 defined('TPL_DIR') or define('TPL_DIR', BASE_DIR . '/template');
 require_once LIB_DIR . '/functions.php';
 
